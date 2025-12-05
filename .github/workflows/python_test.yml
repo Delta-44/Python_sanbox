@@ -26,10 +26,8 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          # Instalamos explícitamente las librerías necesarias por si falla el requirements.txt
           pip install pytest flask flask-cors
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Run tests
-        # Usamos python -m pytest para asegurar que usa el python instalado arriba
         run: python -m pytest
